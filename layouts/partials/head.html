@@ -22,6 +22,27 @@
 <meta name="description" content="{{ .Params.Description }}"/>
 {{- end }}
 
+<meta
+  property="og:title"
+  content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf `%s | Notes` .Title }}{{ end }}"
+/>
+<meta
+  property="og:description"
+  content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ printf `%s` .Summary | safeHTML | truncate 200}}{{ end }}"
+/>
+<meta
+  property="og:image"
+  content="https://raw.githubusercontent.com/osBins/blog-hugo/master/static/OG.png"
+/>
+<meta
+  property="og:image:secure_url"
+  content="https://raw.githubusercontent.com/osBins/blog-hugo/master/static/OG.png"
+/>
+<meta
+  name="google-site-verification"
+  content="-SFw553OBGhGZF6JdjpSxxGodsLIjebOJQHBL5fE9dA"
+/>
+
 {{ if .Param "fediverse" }}
 <meta name="fediverse:creator" content="{{ .Params.Fediverse }}">
 {{ end }}
@@ -36,7 +57,15 @@
 
 <link rel="canonical" href="{{ .Permalink }}"/>
 
-{{ template "partials/opengraph.html" . }}
+{{ with .Site.Params.googleAnalytics }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ . }}');
+    </script>
+{{ end }}
 
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
