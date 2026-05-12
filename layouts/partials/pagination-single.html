@@ -6,7 +6,7 @@
     <div class="flexnowrap">
 
         <div class="single-pagination-prev">
-            {{ with .PrevInSection }}
+            {{ with .NextInSection }}
             <div class="single-pagination-container-prev">
                 <div class="single-pagination-text">←</div>
                 <div class="single-pagination-text">
@@ -19,7 +19,7 @@
         </div>
 
         <div class="single-pagination-next">
-            {{ with .NextInSection }}
+            {{ with .PrevInSection }}
             <div class="single-pagination-container-next">
                 <div class="single-pagination-text">
                     <a href="{{ .RelPermalink }}">

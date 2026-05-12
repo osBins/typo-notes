@@ -57,6 +57,10 @@ and build the img class string as "img-tag1 img-tag2 ..."
             <img loading="lazy" alt="{{ $text }}" src="{{ $url }}" width="{{ .Width }}" height="{{ .Height }}">
         </div>
       {{ end }}
+    {{ else }}
+      <div>
+          <img loading="lazy" alt="{{ $text }}" src="{{ $url }}">
+      </div>
     {{ end }}
 
     {{ with .Title }}

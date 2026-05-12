@@ -412,7 +412,6 @@ footer a {
 
 .single-pagination-text {
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 100%;
 }
@@ -421,27 +420,28 @@ footer a {
   min-width: 50%;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  text-align: right;
+  text-align: left;
 }
 
 .single-pagination-next {
   min-width: 50%;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  text-align: left;
+  text-align: right;
 }
 
 .single-pagination-container-next {
   display: flex;
+  justify-content: flex-end;
   min-height: 100%;
   padding: 0.5rem;
 }
 
 .single-pagination-container-prev {
   display: flex;
+  justify-content: flex-start;
   min-height: 100%;
   padding: 0.5rem;
-  float: right;
 }
 
 /* Table of contents */
